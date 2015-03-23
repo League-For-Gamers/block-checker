@@ -1,6 +1,6 @@
 # BlockBot Checker
 
-This app allows a user to check if they are on either the [TheBlockBot](www.theblockbot.com) blocklist or the [ggautoblocker](http://blog.randi.io/good-game-auto-blocker/) blocklist.
+This app allows a user to check if they are on either the [TheBlockBot](http://www.theblockbot.com) blocklist or the [ggautoblocker](http://blog.randi.io/good-game-auto-blocker/) blocklist.
 
 TODO: Write setup instructions
 
