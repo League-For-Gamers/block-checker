@@ -1,0 +1,12 @@
+body {
+  padding-top: 50px;
+}
+.main {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.main > p.blocked {
+  font-weight: bold;
+}
+

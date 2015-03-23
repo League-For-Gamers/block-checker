@@ -1,0 +1,21 @@
+{
+  "development": {
+    "username": "erik",
+    "password": null,
+    "database": "blockchecker",
+    "host": "192.168.1.127",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "logging": false
+  }
+}

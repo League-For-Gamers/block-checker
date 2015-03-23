@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-xs-6.col-xs-offset-3.main
+        h1 Blocklist Checker
+        label(for="screenName") Enter a twitter handle
+        form.input-group
+          input.form-control(type='text', name='screenName', placeholder='@YourTwitterHandle')
+          span.input-group-btn
+            button.btn.btn-default(type='submit') Go!
+
+    if screenName
+      .row
+        .col-xs-6.col-xs-offset-3.main
+          if ggAutoBlockBlockData
+            p.blocked @#{screenName} is on the ggautoblocker's blocklist.
+          else
+            p.unblocked @#{screenName} is not on the ggautoblocker's blocklist.
+
+          if blockBotBlockData
+            p.blocked @#{screenName} is on TheBlockBot's blocklist (Level #{blockBotBlockData.level}).
+          else
+            p.unblocked @#{screenName} is not on TheBlockBot's blocklist.
