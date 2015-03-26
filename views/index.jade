@@ -2,24 +2,37 @@ extends layout
 
 block content
   .container
-    .row
-      .col-xs-6.col-xs-offset-3.main
+    .row.header
+      .col-xs-6.col-xs-offset-3
         h1 Blocklist Checker
+
+    .row
+      .col-xs-8.col-xs-offset-2
+        p League For Gamers carefully monitors Twitter “blocklists” to ensure they respect the rights of all gamers blocked by these tools. While we understand the value some users find in these tools, we hold blocklist operators to a high level of professionalism. We believe blocklists should respect the users added to these lists, including their data privacy and reputation, and also uphold all relevant laws internationally.
+        p We currently monitor two major lists that target gamers: <a href="http://blog.randi.io/good-game-auto-blocker/">Randi Harper's ggAutoblocker</a>, and the <a href="https://www.theblockbot.com/">Atheism+ blockbot</a> ("The Block Bot"). Please note we do not operate or endorse these blocklists, and currently find them to fall short of the the professionalism we believe is necessary. 
+        p However, since these blocklists do not support a way for gamers to easily check if they are being blocked, we've created a tool that does the checking for you. Simply type in your twitter handle to see your status on either list.
+
+    .row
+      .col-xs-6.col-xs-offset-3.main.tool
         label(for="screenName") Enter a twitter handle
         form.input-group
           input.form-control(type='text', name='screenName', placeholder='@YourTwitterHandle')
           span.input-group-btn
             button.btn.btn-default(type='submit') Go!
 
-    if screenName
-      .row
-        .col-xs-6.col-xs-offset-3.main
-          if ggAutoBlockBlockData
-            p.blocked @#{screenName} is on the ggautoblocker's blocklist.
-          else
-            p.unblocked @#{screenName} is not on the ggautoblocker's blocklist.
+        if screenName
+          .results
+            if ggAutoBlockBlockData
+              p.blocked @#{screenName} is on the ggAutoblocker's blocklist.
+            else
+              p.unblocked @#{screenName} is not on the ggAutoblocker's blocklist.
 
-          if blockBotBlockData
-            p.blocked @#{screenName} is on TheBlockBot's blocklist (Level #{blockBotBlockData.level}).
-          else
-            p.unblocked @#{screenName} is not on TheBlockBot's blocklist.
+            if blockBotBlockData
+              p.blocked @#{screenName} is on The Block Bot's blocklist (Level #{blockBotBlockData.level}).
+            else
+              p.unblocked @#{screenName} is not on The Block Bot's blocklist.
+
+    .row
+      .col-xs-8.col-xs-offset-2
+        p This tool is just our first step to enabling gamers to hold these block lists accountable to high standards of professionalism. League For Gamers will be creating additional tools for gamers to protect their rights online. Please <a href="https://twitter.com/league4gamers">follow us on Twitter</a> (@league4gamers) for updates.
+        
