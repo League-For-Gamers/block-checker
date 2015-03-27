@@ -1,9 +1,10 @@
 html, body {
-  background-color: #F0F8FF !important;
+  background-color: none;
   height: 100%;
+  color: #fff;
 }
 body{
-  background: url(http://codemancystudio.com/dev/vlada/lfg/images/home/s-bg.jpg) no-repeat center center;
+  background-image: url(http://codemancystudio.com/dev/vlada/lfg/images/home/s-bg.jpg) no-repeat center center;
 }
 
 .header {
@@ -26,6 +27,13 @@ body{
 
 .container {
   padding-top: 50px;
-  background-color: #fff;
+  background-color: none;
   min-height: 100%;
 }
+
+.input-group input, .input-group-btn:last-child > .btn {border: none; color: #fff; border-radius: 0; box-shadow: none;}
+.input-group input {padding: 17px;}
+.input-group-btn:last-child > .btn {padding: 17px 40px;}
+
+.btn.btn-default {background: #F05940;}
+.btn.btn-default:hover {background: #CB4B36;}
