@@ -2,6 +2,10 @@ html, body {
   background-color: #F0F8FF !important;
   height: 100%;
 }
+body{
+  background: url(http://codemancystudio.com/dev/vlada/lfg/images/home/s-bg.jpg) no-repeat center center;
+}
+
 .header {
   text-align: center;
   padding-bottom: 30px;
