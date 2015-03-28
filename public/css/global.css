@@ -3,8 +3,9 @@ html, body {
   height: 100%;
   color: #fff;
 }
-body{
-  background-image: url(http://codemancystudio.com/dev/vlada/lfg/images/home/s-bg.jpg) no-repeat center center;
+
+body {
+  background-image: url(/images/bg.jpg);
 }
 
 .header {
@@ -12,8 +13,23 @@ body{
   padding-bottom: 30px;
 }
 
+a.logo {
+  display: inline-block;
+}
+
+a {
+  transition: color 0.3s;
+  color: #F05940;
+  font-weight: 600;
+}
+
+a:hover {
+  color: #CB4B36;
+  text-decoration: none;
+}
+
 .results {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 
 .results > p.blocked {
@@ -21,19 +37,43 @@ body{
 }
 
 .tool {
-  height: 240px;
-  padding: 50px 0px;
+  min-height: 240px !important;
+  padding-top: 50px;
 }
 
 .container {
   padding-top: 50px;
-  background-color: none;
+  background-color: #fff;
+  background-image: none;
   min-height: 100%;
 }
 
-.input-group input, .input-group-btn:last-child > .btn {border: none; color: #fff; border-radius: 0; box-shadow: none;}
-.input-group input {padding: 17px;}
-.input-group-btn:last-child > .btn {padding: 17px 40px;}
+.tool .btn {
+  border: none;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 18px 40px;
+  background: #F05940;
+  transition: background 0.3s;
+}
 
-.btn.btn-default {background: #F05940;}
-.btn.btn-default:hover {background: #CB4B36;}
+.tool .btn:hover {
+  background: #CB4B36;
+}
+
+input.form-control {
+  padding: 17px; height: auto;
+}
+
+.form-control {
+  border-radius: 0;
+  border: none;
+  background: #fff;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
