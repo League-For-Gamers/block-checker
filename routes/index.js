@@ -16,18 +16,11 @@ var BlockBotBlock = models.BlockBotBlock;
 var GGAutoBlockBlock = models.GGAutoBlockBlock;
 
 function checkGGAutoBlockBlocks(screenName, callback) {
-  twitter.users('show', { screen_name: screenName }, config.get('twitter.accessToken'), config.get('twitter.accessTokenSecret'), function(err, data, results) {
-    if (err || !data) {
-      return callback(err);
-    }
-
-    GGAutoBlockBlock.find({where: {userId: data.id, active: true}}).then(function(block) {
-      callback(null, block);
-    }).catch(function(err) {
-      callback(err);
-    });
+  GGAutoBlockBlock.find({where: {screenName: screenName, active: true}}).then(function(block) {
+    callback(null, block);
+  }).catch(function(err) {
+    callback(err);
   });
-
 }
 
 function checkBlockBotBlocks(screenName, callback) {
@@ -57,14 +50,49 @@ router.get('/', function(req, res, next) {
       checkBlockBotBlocks(screenName, callback);
     }],
     function(err, results) {
+      var error = false;
+
       if (err) {
         log.error(err);
+        error = true;
       }
 
       res.render('index', {
         ggAutoBlockBlockData: results[0],
         blockBotBlockData: results[1],
-        screenName: screenName
+        screenName: screenName,
+        error: error
+      });
+    }
+  );
+});
+
+router.get('/user/:screenName', function(req, res, next) {
+  var screenName = req.params.screenName.trim();
+
+  if (screenName.substring(0,1) == '@') {
+    screenName = screenName.substring(1);
+  }
+
+  async.parallel([
+    function(callback) {
+      checkGGAutoBlockBlocks(screenName, callback);
+    },
+    function(callback) {
+      checkBlockBotBlocks(screenName, callback);
+    }],
+    function(err, results) {
+      var error = false;
+      if (err) {
+        log.error(err);
+        error = true;
+      }
+
+      res.render('includes/results', {
+        ggAutoBlockBlockData: results[0],
+        blockBotBlockData: results[1],
+        screenName: screenName,
+        error: error
       });
     }
   );

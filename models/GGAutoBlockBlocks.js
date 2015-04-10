@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
-    active: DataTypes.BOOLEAN
+    active: DataTypes.BOOLEAN,
+    screenName: DataTypes.STRING
   }, {
     tableName: 'ggautoblock_blocks'
   });

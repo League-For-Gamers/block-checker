@@ -1,0 +1,13 @@
+if screenName
+  if error
+    p Your request could not be completed at this time, please try again later.
+  else
+    if ggAutoBlockBlockData
+      p.blocked @#{screenName} is on the ggAutoblocker's blocklist.
+    else
+      p.unblocked @#{screenName} is not on the ggAutoblocker's blocklist.
+
+    if blockBotBlockData
+      p.blocked @#{screenName} is on The Block Bot's blocklist (Level #{blockBotBlockData.level}).
+    else
+      p.unblocked @#{screenName} is not on The Block Bot's blocklist.

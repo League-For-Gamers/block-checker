@@ -1,4 +1,5 @@
 {
   "blockbotUrl": "http://www.theblockbot.com/sign_up/followthefollowers/blocks.csv",
-  "updateIntervalMinutes": 30
+  "blockBotUpdateIntervalMinutes": 30,
+  "GGAutoBlockUpdateIntervalSeconds": 70
 }

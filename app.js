@@ -83,8 +83,9 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 // Schedule updating of block lists
-updateBlocks();
-setInterval(updateBlocks, config.get('updateIntervalMinutes') * 1000 * 60);
+updateBlocks.updateBlockBotBlocks();
+updateBlocks.updateGGAutoBlockBlocks();
+setInterval(updateBlocks.updateBlockBotBlocks, config.get('blockBotUpdateIntervalMinutes') * 1000 * 60);
 
 /**
  * Normalize a port into a number, string, or false.

@@ -20,21 +20,12 @@ block content
       .col-xs-6.col-xs-offset-3.tool
         label(for="screenName") Enter a twitter handle
         form.input-group
-          input.form-control(type='text', name='screenName', placeholder='@YourTwitterHandle')
+          input.form-control.js-name-input(type='text', name='screenName', placeholder='@YourTwitterHandle')
           span.input-group-btn
-            button.btn.btn-default(type='submit') Go!
+            button.btn.btn-default.js-submit-btn(type='submit') Go!
 
-        if screenName
-          .results
-            if ggAutoBlockBlockData
-              p.blocked @#{screenName} is on the ggAutoblocker's blocklist.
-            else
-              p.unblocked @#{screenName} is not on the ggAutoblocker's blocklist.
-
-            if blockBotBlockData
-              p.blocked @#{screenName} is on The Block Bot's blocklist (Level #{blockBotBlockData.level}).
-            else
-              p.unblocked @#{screenName} is not on The Block Bot's blocklist.
+        .results.js-results
+          include includes/results
       .clearfix
     .row.text-left
       .col-xs-8.col-xs-offset-2
